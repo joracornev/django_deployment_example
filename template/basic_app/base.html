@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BASE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class='container'>
+        <ul class='nav navbar-nav'>
+
+{# Django Home Link / Admin Link / Register Link #}
+          <li><a class='navbar-brand'href="{% url 'index' %}">[HOME]</a></li>
+          <li><a class='navbar-link'href="{% url 'admin:index' %}">[ADMIN]</li>
+          <li><a class='navbar-link'href="{% url 'basic_app:register' %}">[REGISTER]</a></li>
+          
+{# Some logic on what to display for last item #}
+          {% if user.is_authenticated %}
+          <li> <a class='navbar-link' href="{% url 'logout' %}"></a> LogOut </li>
+
+          {% else %}
+          <li><a class='navbar-link' href="{% url 'basic_app:user_login' %}"></a> LogIn </li>
+
+          {% endif %}
+
+
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block body_block %}
+      {% endblock %}
+    </div>
+
+  </body>
+</html>

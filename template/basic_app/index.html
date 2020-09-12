@@ -1,0 +1,15 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+
+<div class="container">
+  <div class="jumbotron">
+      <h1>DJANGO LVL 5 INDEX</h1>
+      {% if user.is_authenticated %}
+      <h2>Wellcome {{ user.username }} !</h2>
+      {% else %}
+      <h2>Wellcome to the site</h2>
+      {% endif %}
+  </div>
+</div>
+
+{% endblock %}

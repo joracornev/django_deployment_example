@@ -1,0 +1,25 @@
+{% extends 'basic_app/base.html' %}
+<!-- load staticfiles replaced by LOAD STATIC-->
+{% load static %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">
+    <!-- basic_app + urls.py + url('register/',views.register, name='register')!!!!!!!!!basic_app.views.py return render(request, 'basic_app/registration',-->
+    {% if registered %}
+      <h3>THANK YOU FOR REGISTERING!</h3>
+    {% else %}
+      <h3>REGISTER HERE!</h3>
+      <h3>FILL OUT THE FORM:</h3>
+       <form  enctype='multipart/form-data' method="POST" >
+      {% csrf_token %}
+    <!--forms.py  UserForm+!!!!!!!!!basic_app.views.py return render(request, 'basic_app/registration',-->
+       {{ user_form.as_p }}
+    <!--!!!!!!!!!basic_app.views.py return render(request, 'basic_app/registration', -->
+       {{ profile_form.as_p }}
+       <input type="submit" name="" value="Register">
+  </form>
+{% endif %}
+  </div>
+</div>
+
+{% endblock %}

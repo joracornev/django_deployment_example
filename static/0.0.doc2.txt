@@ -1,0 +1,10 @@
+Here is located STATIC data for site like pictures etc. provided by CREATOR
+# Static files (CSS, JavaScript, Images) 
+in
+settings.py 
+
+STATICFILES_DIRS=[STATIC_DIR,]# AddSTATIC DIR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#MEDIA
+MEDIA_ROOT = MEDIA_DIR# Add MEDIA_DIR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+MEDIA_URL ='/media/'# Add MEDIA_URL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
